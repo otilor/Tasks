@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         Text("Welcome to my first iOS application.")
-            .padding()
+            .padding().foregroundColor(.blue)
+        
+        Text("Designed by Akinyosoye Gabriel").foregroundColor(.red)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
