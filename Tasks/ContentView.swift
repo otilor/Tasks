@@ -8,47 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var shortString = true
+    @State var username: String = ""
+    
     var body: some View {
         VStack {
-                    if shortString {
-                        Text("Welcome to Tasks").font(.title).fixedSize()
-                        .transition(AnyTransition.opacity.animation(.easeInOut(duration:1.0)))
-                    }
-                    if !shortString {
-                        Text("by Gabriel Akinyosoye").font(.title).fixedSize()
-                            .transition(AnyTransition.opacity.animation(.easeInOut(duration:1.0)))
-                    }
-
-                    Button(action: {self.shortString.toggle()}) {
-                        Text("Toggle")
-                            .padding()
-                    }
-                    .accentColor(.white)
-                    .background(Color .gray)
-                    .cornerRadius(10.0)
-                    .padding()
-            
-            
-            Button(action: {}) {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
+            HStack {
+                Text("Task manager").font(.largeTitle).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Image(systemName: "checkmark.square").font(.title)
             }
-            .padding()
-            .accentColor(.red)
-            .foregroundColor(.white)
-            .background(Color.red)
-            .cornerRadius(10)
+            
+            TextField("Enter the first task.", text: $username).textFieldStyle(RoundedBorderTextFieldStyle())
+            Button(action: {
+                print("Yikes")
+            }) {
+                
+                Text("Save task")
+            }
+            .padding().foregroundColor(.white).background(Color.red).cornerRadius(10)
+        }
+        .padding()
     }
+    
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
-
 }
